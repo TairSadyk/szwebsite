@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  /* root font size 10px, we use percentages for accesabilty purposes, 
+  since some people increase the font size of their browser */
+  font-size: 62.5%;
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    font-size: 43.75%;
+  }
+}
+body {
+  /* box sizing property not inherited automatically, so we set all selectors to inherit this declared value  */
+  box-sizing: border-box;
+  padding: 9rem 6rem;
+  background-color: $color-grey-light-1;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
