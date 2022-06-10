@@ -16,7 +16,15 @@ navList.addEventListener("click", function (e) {
   [...sections].forEach(
     (sec) => !sec.classList.contains("hidden") && sec.classList.add("hidden")
   );
-  document.querySelector(`.${link.textContent}`).classList.remove("hidden");
+  const section = document.querySelector(`.${link.textContent}`);
+  section.classList.remove("hidden");
+  section.scrollIntoView({ behavior: "smooth" });
+});
+
+btnScrollTo.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  section1.scrollIntoView({ behavior: "smooth" });
 });
 
 // const imageReveal = function (entries, observer) {

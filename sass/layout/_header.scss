@@ -13,17 +13,62 @@
     &__link {
       &:link,
       &:visited {
+        position: relative;
         color: $color-grey-dark-1;
         text-decoration: none;
         font-weight: 300;
         font-size: 1.2rem;
         letter-spacing: 1px;
-        transition: all 0.4s ease;
-        border-bottom: 1px solid transparent;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        // border-bottom: 1px solid transparent;
+        // &::before,
+        // &::after {
+        // &::before {
+        //   content: "";
+        //   position: absolute;
+        //   // top: 100%;
+        //   top: 50%;
+        //   left: -100%;
+        //   transform: translateY(-50%);
+        //   // left: 50%;
+        //   width: 0;
+        //   height: 1px;
+        //   opacity: 0;
+        //   background-color: $color-grey-dark-1;
+        //   transition: all 0.4s ease;
+        // }
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          // top: 50%;
+          left: 50%;
+          // left: -100%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 1px;
+          opacity: 0;
+          background-color: $color-grey-dark-1;
+          transition: all 0.3s ease;
+        }
       }
-      &:hover,
-      &:active {
-        border-bottom: 1px solid $color-grey-dark-1;
+      // &:not(.active):hover:before {
+      //   width: 100%;
+      //   left: 0;
+
+      //   opacity: 1;
+      // }
+      &:not(.active):hover:before,
+      &:not(.active):hover:after {
+        width: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+      &:not(.active):hover:before {
+        transform: translate(-100%, -50%);
       }
     }
     &__social-links {
@@ -33,14 +78,40 @@
     &__social-link {
       &:link,
       &:visited {
+        position: relative;
         color: $color-grey-dark-1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
         text-decoration: none;
-        transition: all 0.2s ease;
+        border: 1px solid $color-grey-light-2;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: $color-grey-light-2;
+          transform: scale(0);
+
+          border-radius: 50%;
+          z-index: -1;
+
+          transition: all 0.3s ease;
+        }
+      }
+      &:hover:before {
+        transform: scale(1);
       }
       &:hover,
       &:active {
-        transform: scale(1.3);
-        color: $color-black;
+        // transform: scale(1.3);
+        // color: $color-grey-dark-2;
       }
     }
     &__social-icon {

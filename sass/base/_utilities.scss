@@ -19,14 +19,13 @@
 }
 
 .hidden {
-  // display: none;
   opacity: 0 !important;
-  display: none;
+  // display: none;
+  visibility: hidden;
   transition: all 1s;
 }
 .active {
   text-decoration: line-through !important;
   &:hover {
-    border-bottom: 1px solid transparent !important;
   }
 }

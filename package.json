@@ -8,7 +8,7 @@
     "watch:sass": "sass --watch sass/main.scss:css/style.css",
     "start": "npm-run-all --parallel devserver watch:sass",
     "compile:sass": "sass sass/main.scss css/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/syle.prefix.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
     "compress:css": "sass --style=compressed css/style.prefix.css css/style.css",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
     "build:js": "parcel build index.html --dist-dir ./dist"
