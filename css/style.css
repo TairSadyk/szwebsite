@@ -77,8 +77,8 @@ body {
 
 .hidden {
   opacity: 0 !important;
-  transition: all 1s;
   display: none;
+  transition: all 1s;
 }
 
 .active {
@@ -190,18 +190,20 @@ body {
   width: 100%;
   height: 100%;
   box-shadow: 0 2rem 4rem rgba(58, 58, 58, 0.15);
+  transition: transform 1s, opacity 1s;
+}
+.portfolio-image--hidden {
+  opacity: 0;
+  transform: translateY(3rem);
 }
 
-.editorials {
+.editorials,
+.collections,
+.prints,
+.research {
   opacity: 1;
-  transition: all 1s ease-in-out;
   visibility: visible;
-}
-
-.collections {
-  opacity: 1;
   transition: all 1s ease-in-out;
-  visibility: visible;
 }
 
 /*# sourceMappingURL=style.css.map */
