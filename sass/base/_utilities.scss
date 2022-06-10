@@ -19,9 +19,10 @@
 }
 
 .hidden {
+  // display: none;
+  opacity: 0 !important;
+  transition: all 1s;
   display: none;
-  opacity: 0;
-  visibility: hidden;
 }
 .active {
   text-decoration: line-through !important;
