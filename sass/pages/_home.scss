@@ -1,20 +1,38 @@
+body {
+  position: relative;
+  max-height: 1200px;
+}
 .portfolio-image {
   width: 100%;
   height: 100%;
   box-shadow: 0 2rem 4rem rgba($color-black, 0.15);
   transition: transform 1s, opacity 1s;
-  &--hidden {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
+  // &--hidden {
+  //   opacity: 0;
+  //   transform: translateY(3rem);
+  // }
 }
 .editorials,
 .collections,
 .prints,
 .research {
+  position: absolute;
+  left: 30.5rem;
   opacity: 1;
+  // height: auto;
   visibility: visible;
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-out;
+
+  @include respond(big-desktop) {
+    left: 40rem;
+  }
+  @include respond(tab-port) {
+    left: 29rem;
+  }
+  @include respond(phone) {
+    position: relative;
+    left: 0;
+  }
 }
 // .collections {
 //   opacity: 1;

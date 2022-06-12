@@ -13,31 +13,32 @@ navList.addEventListener("click", function (e) {
   e.preventDefault();
   [...navLinks].forEach((link) => link.classList.remove("active"));
   !link.classList.contains("active") && link.classList.add("active");
-  [...sections].forEach(
-    (sec) => !sec.classList.contains("hidden") && sec.classList.add("hidden")
-  );
+
+  [...sections].forEach((sec) => {
+    if (!sec.classList.contains("hidden")) {
+      sec.classList.add("hidden");
+    }
+  });
   const section = document.querySelector(`.${link.textContent}`);
   section.classList.remove("hidden");
-  section.scrollIntoView({ behavior: "smooth" });
+
+  document
+    .querySelector("body")
+    .scrollIntoView({ block: "start", behavior: "smooth" });
 });
 
-btnScrollTo.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  section1.scrollIntoView({ behavior: "smooth" });
+const imageReveal = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+  // if (!entry.isIntersecting) return;
+  // entry.target.classList.remove("portfolio-image--hidden");
+  observer.unobserve(entry.target);
+};
+const imageObserver = new IntersectionObserver(imageReveal, {
+  root: null,
+  threshold: 0.15,
 });
-
-// const imageReveal = function (entries, observer) {
-//   const [entry] = entries;
-//   if (!entry.isIntersecting) return;
-//   entry.target.classList.remove("portfolio-image--hidden");
-//   observer.unobserve(entry.target);
-// };
-// const sectionObserver = new IntersectionObserver(imageReveal, {
-//   root: null,
-//   threshold: 0.15,
-// });
-// allImgs.forEach((img) => {
-//   sectionObserver.observe(img);
-//   img.classList.add("portfolio-image--hidden");
-// });
+allImgs.forEach((img) => {
+  if (img.clientHeight !== 0) imageObserver.observe(img);
+  // img.classList.add("portfolio-image--hidden");
+});

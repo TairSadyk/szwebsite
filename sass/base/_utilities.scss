@@ -7,6 +7,9 @@
 }
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
+  @include respond(phone) {
+    margin-bottom: 3rem !important;
+  }
 }
 .u-margin-bottom-large {
   margin-bottom: 6rem !important;
@@ -21,8 +24,19 @@
 .hidden {
   opacity: 0 !important;
   // display: none;
-  visibility: hidden;
-  transition: all 1s;
+  visibility: hidden !important;
+  height: 0 !important;
+  & .grid {
+    gap: 0;
+  }
+  & .grid__content {
+    height: 0 !important;
+    margin: 0;
+  }
+  & .portfolio-image {
+    height: 0 !important;
+    margin: 0;
+  }
 }
 .active {
   text-decoration: line-through !important;
