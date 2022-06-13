@@ -2,6 +2,7 @@
 const sections = document.querySelectorAll("section");
 const navList = document.querySelector(".nav__list");
 const navLinks = document.querySelectorAll(".nav__link");
+const preloader = document.querySelector(".preloader");
 
 navList.addEventListener("click", function (e) {
   const link = e.target.closest(".nav__link");
@@ -21,4 +22,8 @@ navList.addEventListener("click", function (e) {
   document
     .querySelector("body")
     .scrollIntoView({ block: "start", behavior: "smooth" });
+});
+
+window.addEventListener("load", function () {
+  preloader.classList.add("hidden");
 });

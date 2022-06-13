@@ -27,26 +27,22 @@
         font-size: 1.2rem;
         letter-spacing: 1px;
         overflow: hidden;
-        &::before,
-        &::after {
+        &::before {
           content: "";
           position: absolute;
-          top: 100%;
-          width: 50%;
+          top: 45%;
+          left: -100%;
+          width: 0;
           height: 1px;
           opacity: 0;
+          // transform: translateY(-50%);
           background-color: $color-grey-dark-1;
-          transition: all 0.5s ease-in-out;
+          transition: all 0.4s ease;
         }
-        &::after {
-          left: 50%;
-        }
-        &::before {
+
+        &:not(.active):hover:before {
+          width: 100%;
           left: 0;
-        }
-        &:not(.active):hover::before,
-        &:not(.active):hover:after {
-          top: 46%;
           opacity: 1;
         }
       }
