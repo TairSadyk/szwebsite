@@ -7,10 +7,6 @@ body {
   height: 100%;
   box-shadow: 0 2rem 4rem rgba($color-black, 0.15);
   transition: transform 1s, opacity 1s;
-  // &--hidden {
-  //   opacity: 0;
-  //   transform: translateY(3rem);
-  // }
 }
 .editorials,
 .collections,
@@ -34,12 +30,3 @@ body {
     left: 0;
   }
 }
-// .collections {
-//   opacity: 1;
-//   transition: all 1s ease-in-out;
-//   visibility: visible;
-// }
-// .prints{
-
-// }
-// .research{}

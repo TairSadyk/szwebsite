@@ -34,5 +34,6 @@ body {
   @include respond(phone) {
     padding: 4rem 2rem;
     margin: 0;
+    overflow-x: hidden;
   }
 }

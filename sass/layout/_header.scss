@@ -17,8 +17,6 @@
         justify-content: center;
       }
     }
-    &__item {
-    }
     &__link {
       &:link,
       &:visited {
@@ -28,56 +26,29 @@
         font-weight: 300;
         font-size: 1.2rem;
         letter-spacing: 1px;
-        transition: all 0.3s ease;
         overflow: hidden;
-        // border-bottom: 1px solid transparent;
-        // &::before,
-        // &::after {
-        // &::before {
-        //   content: "";
-        //   position: absolute;
-        //   // top: 100%;
-        //   top: 50%;
-        //   left: -100%;
-        //   transform: translateY(-50%);
-        //   // left: 50%;
-        //   width: 0;
-        //   height: 1px;
-        //   opacity: 0;
-        //   background-color: $color-grey-dark-1;
-        //   transition: all 0.4s ease;
-        // }
         &::before,
         &::after {
           content: "";
           position: absolute;
           top: 100%;
-          // top: 50%;
-          left: 50%;
-          // left: -100%;
-          transform: translateY(-50%);
-          width: 0;
+          width: 50%;
           height: 1px;
           opacity: 0;
           background-color: $color-grey-dark-1;
-          transition: all 0.3s ease;
+          transition: all 0.5s ease-in-out;
         }
-      }
-      // &:not(.active):hover:before {
-      //   width: 100%;
-      //   left: 0;
-
-      //   opacity: 1;
-      // }
-      &:not(.active):hover:before,
-      &:not(.active):hover:after {
-        width: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 1;
-      }
-      &:not(.active):hover:before {
-        transform: translate(-100%, -50%);
+        &::after {
+          left: 50%;
+        }
+        &::before {
+          left: 0;
+        }
+        &:not(.active):hover::before,
+        &:not(.active):hover:after {
+          top: 46%;
+          opacity: 1;
+        }
       }
     }
     &__social-links {
@@ -100,7 +71,6 @@
         text-decoration: none;
         border: 1px solid $color-grey-light-2;
         border-radius: 50%;
-        transition: all 0.3s ease;
         &::before {
           content: "";
           position: absolute;
@@ -114,21 +84,15 @@
           border-radius: 50%;
           z-index: -1;
 
-          transition: all 0.3s ease;
+          transition: all 0.3s ease-in-out;
         }
       }
-      &:hover:before {
+      &:hover::before {
         transform: scale(1);
-      }
-      &:hover,
-      &:active {
-        // transform: scale(1.3);
-        // color: $color-grey-dark-2;
       }
     }
     &__social-icon {
       font-size: 1rem;
-      --ionicon-stroke-width: 4rem;
     }
     &__copyright {
       text-transform: capitalize;
